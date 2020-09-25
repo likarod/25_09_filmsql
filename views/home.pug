@@ -1,0 +1,44 @@
+html
+  head
+    title= title 
+    link(rel="stylesheet", href="/home.css")
+  body
+    nav(id= "navegacion")
+            a(href="/") INICIO
+            br
+            a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
+    header(id= "cabecera")
+      h1(class="cabeceraIntro")=message
+    div(id = "buscador") 
+      h2 BUSCADOR DE PELÍCULAS
+            br
+            input(type="text", name="peliTitulos" id="inputTitulos")
+            br
+            input(type="button", value="Buscar" id="tomarValor")
+    div(id = "informacion")
+      h2(class="infoTitulo") VISUALICE SUS PELICULAS FAVORITAS
+      each film, index in datos
+        section(class="lista_cartas")
+          article(class="cartas")
+            header(class="cabecera_cartas")
+            span(id="posicion")=index
+            p(class="dataName") Titulo: 
+              span=film.Titulo
+            p(class="dataYear") Año de la película: 
+              span=film.Epoca
+            p(class="dataGenre") Género de la película: 
+              span=film.Genero
+            p(class="dataDirector") Director: 
+              span=film.Director
+            img(class="dataPoster" id="poster" src=film.Poster)
+            br
+            input(type="button" id=`borrar${index}` value="Borrar" onclick=`borrarBBDD("${film.Titulo}")`)
+            input(type="button" id=`editar${index}` value="Editar", onclick=`editarBBDD("${film.Titulo}")`)
+            input(type="button"  id=`detalle${index}` value="Detalles", onclick =`detalleBBDD("${film.Titulo}")`)
+  footer
+    header
+      div 
+        p Creative Commons 
+        p Lina Katherine Larrea
+  script(src="/script_home.js") 
+    

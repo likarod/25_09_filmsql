@@ -1,0 +1,52 @@
+html   
+    head
+        title= "Peli final"
+    body
+        div
+            div
+                nav
+                    a(href="/") INICIO
+            h1=mensaje
+            section
+                article
+                    p El titulo de la película es  
+                     span=tituloPeli
+            section
+                article
+                    p El año de la película es 
+                     span=epocaPeli
+            section
+                article
+                    p El género de la película es 
+                     span=generoPeli
+            section
+                article
+                    p El director de la pelicula es  
+                     span=peliDirector
+            section
+                article
+                    p Los actores protagonistas son 
+                     span=actorPeli
+            section
+                article
+                    p Sinopsis 
+                     span=sinopsisPeli
+            section
+                article
+                    p Idiomas: 
+                     span=idiomasPeli
+            section
+                article
+                    p Puntuacion: 
+                     span=puntuacionPeli
+            section
+                article
+                    p Producción: 
+                     span=productorPeli
+            div
+            img(src=Poster, id= "poster" alt="Poster película")
+            div 
+            if(botton)
+                input(type="button", value="Guarde sus títulos favoritos.", id="btnFavorito")
+            else if(botton = false)
+    script(src="/script2.js") 

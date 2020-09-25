@@ -1,0 +1,64 @@
+html
+   head
+      title Guarde su película favorita. 
+   body
+      header
+         div
+            nav
+               a(href="/") Inicio.
+      main 
+      h1=titulo1 
+         form(action=ruta, method=metodo)
+            div 
+            input(type="text", name="id" value=_id)
+            div
+               label(for = "titulo") Titulo:  
+               br
+               input(type = "text" name = "Titulo" id="nombre" value=tituloEdit required)
+            br
+            div
+               label(for = "epoca") Año:
+               br  
+               input(type ="text" name = "Epoca" id = "epoca" value=epocaEdit required)
+            br
+            div
+               label(for = "genero") Género:
+               br  
+               input(type = "text" name = "Genero" id = "genero" value=generoEdit required)
+            br
+            div
+               label(for = "director") Director:
+               br  
+               input(type = "text" name = "Director" id = "director" value=directorEdit required)
+            br
+            div
+               label(for = "actors") Actores principales:
+               br  
+               input(type = "text" name = "Actors" id= "actors" value=actorsEdit required)
+            br
+            div  
+               label(for= "sinopsis") Sinopsis:
+               br
+               input(type="text", name="Sinopsis" id="sinopsis" value=sinopsisEdit, required)
+            br
+            div
+               label(for="idiomas") Idiomas:
+               br
+               input(type="text", name="Idiomas" id="idiomas" value=idiomasEdit required)
+            br
+            div
+               label(for="puntuacion") Puntuacion:
+               br
+               input(type="number", name="Puntuacion" id="Puntuacion" value=puntuacionEdit required)
+            br
+            div
+               label(for="produccion") Producción:
+               br
+               input(type="text", name="Producter" id="produccion" value=produccionEdit required) 
+            div  
+               label(for = "Imagen") Póster:
+               br
+               img(src=imagenEdit, alt="imagen", id="imagen")
+               br
+               input(type="file", name="Poster")
+            button(type = "submit" id = "btnForm") Guardar.
