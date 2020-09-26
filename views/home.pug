@@ -17,11 +17,11 @@ html
             input(type="button", value="Buscar" id="tomarValor")
     div(id = "informacion")
       h2(class="infoTitulo") VISUALICE SUS PELICULAS FAVORITAS
-      each film, index in datos
+      each film in datos
         section(class="lista_cartas")
           article(class="cartas")
             header(class="cabecera_cartas")
-            span(id="posicion")=index
+            span(id="posicion")=film.ID
             p(class="dataName") Titulo: 
               span=film.Titulo
             p(class="dataYear") Año de la película: 
@@ -32,7 +32,7 @@ html
               span=film.Director
             img(class="dataPoster" id="poster" src=film.Poster)
             br
-            input(type="button" id=`borrar${index}` value="Borrar" onclick=`borrarBBDD("${film.Titulo}")`)
+            input(type="button" id=`borrar${index}` value="Borrar" onclick=`borrarBBDD("${film.ID}")`)
             input(type="button" id=`editar${index}` value="Editar", onclick=`editarBBDD("${film.Titulo}")`)
             input(type="button"  id=`detalle${index}` value="Detalles", onclick =`detalleBBDD("${film.Titulo}")`)
   footer

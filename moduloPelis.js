@@ -1,5 +1,7 @@
 const fetch = require ("node-fetch");
-const bbdd = require("./modulos/m_bbdd.js");
+const bbdd = require("./modulos/s_bbdd.js");
+
+
 
 
 
@@ -21,7 +23,7 @@ exports.getapiFilms = (req, res) => {
 
 // Renderiza el HOME y buscar las películas favolitas desde el Buscador.
 exports.getBuscador = (req, res) => {
-    bbdd.leerDocPeli(req)
+    bbdd.leerTitulos(req)
     .then((datos)=> {
         res.render ("home", {title: "Bienvenido/a.", message: "BIENVENIDO", 
         datos})
@@ -32,14 +34,15 @@ exports.getBuscador = (req, res) => {
 
 // Método para los campos a editar del FORM de las películas desde la BBDD.
 exports.getPeliEditar = (req, res) => {
-    bbdd.detalleDocPeli(req.params.titulo)
+    bbdd.detallesTitulo(req.params.titulo)
     .then((datos)=> {
         console.log(datos)
         res.render("form", {
             ruta:"/films/edit",    
-            metodo: "PUT",
-            titulo1: "¿Qué película desea actualizar?",       
-            _id: datos._id,
+            metodo: "POST",
+            titulo1: "¿Qué película desea actualizar?",  
+            posicion: true,
+            _id: datos.ID,
             tituloEdit: datos.Titulo, 
             epocaEdit: datos.Epoca, 
             generoEdit: datos.Genero, 
@@ -58,7 +61,7 @@ exports.getPeliEditar = (req, res) => {
 
 // Metodo para mostar en detalle de las películas en el pug PELICULAS. 
 exports.getPeliDetalle = (req, res) => {
-    bbdd.detalleDocPeli(req.params.titulo)
+    bbdd.detallesTitulo(req.params.titulo)
     .then((datos)=> {   
         res.render("pelicula", {
             tituloPeli: datos.Titulo, 
@@ -85,7 +88,7 @@ exports.getpeliFinal = (req, res) => {
     .then(function(response) {
     return response.json();
     })
-    .then(function(data) {console.log(data.Plot)
+    .then(function(data) {
         res.render("pelicula", {
             mensaje: "La película de su eleección ",
             tituloPeli: data.Title,
@@ -117,19 +120,20 @@ exports.getError = (req, res) => {
 
 // Método POST para crear un nuevo documento en la BBDD.
 exports.posCreateFilms = (req, res) => {
-    bbdd.crearDocPeli( req.body)
-    .then(() => {
-      res.status(200).render("exito", {title: "Enviado con éxito", message: "Tu formulario se ha enviado con éxito"});
-    })
+    bbdd.nuevoTitulo(req.body)
+    .then(
+        res.render("exito", {title: "Enviado con éxito", message: "Tu formulario se ha enviado con éxito"})
+        )
     .catch((e)=> console.log("ocurrió un error:"+e))
 }
+ //;
 
 // Método para editar y actualizar los documentos del FORM. 
 exports.putEditarFilms = (req, res) => {
-    let _id = req.body.id
+    let ID = req.body.id
     console.log("PASO 2 ++++++++++++++++++++++++++++++++++")
-    console.log(_id)
-    bbdd.editarDocPeli(_id, req.body)
+    console.log(req.body)
+    bbdd.editarTitulos(req.body, ID)
     .then(()=> {
         res.status(200).render("exito", {title: "Documento actualizado", message: "Se ha actualizado con éxito "})
     })
@@ -138,9 +142,8 @@ exports.putEditarFilms = (req, res) => {
 
 //Método POST para borrar un documento de la BBDD.
 exports.postDeleteFilms = (req, res) => {
-    bbdd.borrarDocPeli (req.body)
-    .then(() => {
-        res.status(200).render("exito")
-    })
+    console.log(req.body.ID)
+    bbdd.eliminarTitulo (req.body.ID)
+    .then(res.status(200).render("exito"))
     .catch((e) => console.log("ocurrió un error"+e))
 }

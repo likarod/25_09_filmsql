@@ -11,13 +11,15 @@
     "api",
     "rest",
     "express",
-    "node"
+    "node",
+    "base de datos"
   ],
   "author": "Lina Katherine Larrea Rodríguez",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mariadb": "^2.4.2",
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
     "pug": "^3.0.0"

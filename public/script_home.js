@@ -22,11 +22,11 @@ function detalleBBDD (Titulo) {
 }
 
 //Función para el botón Borrar.
-function borrarBBDD (Titulo) {
+function borrarBBDD (ID) {
   borrarPeli = {
-      "Titulo": Titulo,
+      "ID": ID
   }
-
+  console.log(borrarPeli)
   fetch('/films/delete', {
     method: 'DELETE',
     headers: {

@@ -40,7 +40,7 @@ app.get("*", pelis.getError);
 // Ruta para crear documentos de la BBDDD desde el FORM y PELICULAS.
 app.post("/films/create", pelis.posCreateFilms);
 // Ruta para actualizar los campos del formuliario.
-app.put("/films/edit", pelis.putEditarFilms)
+app.post("/films/edit", pelis.putEditarFilms)
 // Ruta para interactuar con la BBDD y borrar una película.
 app.delete("/films/delete", pelis.postDeleteFilms);
 
