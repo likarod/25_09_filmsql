@@ -4,20 +4,21 @@ html
     link(rel="stylesheet", href="/home.css")
   body
     nav(id= "navegacion")
+        ul(class="navegacion-items")
+          li
             a(href="/") INICIO
-            br
+          li
             a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
     header(id= "cabecera")
+      img(src="./IMG/studio-ghibli.svg", alt="imagen de studio ghibli")
       h1(class="cabeceraIntro")=message
     div(id = "buscador") 
-      h2 BUSCADOR DE PELÍCULAS
-            br
-            input(type="text", name="peliTitulos" id="inputTitulos")
-            br
-            input(type="button", value="Buscar" id="tomarValor")
+            <input class="search-text" type="text" name="search" placeholder="¿Qué películas quieres guardar?" id="inputTitulos">
+            input(type="button", value="Busque aquí sus títulos favoritos" id="tomarValor")
+    div
+      h2(class="infoTitulo") Tus peliculas favoritas
     div(id = "informacion")
-      h2(class="infoTitulo") VISUALICE SUS PELICULAS FAVORITAS
-      each film in datos
+      each film, index in datos
         section(class="lista_cartas")
           article(class="cartas")
             header(class="cabecera_cartas")
@@ -31,14 +32,13 @@ html
             p(class="dataDirector") Director: 
               span=film.Director
             img(class="dataPoster" id="poster" src=film.Poster)
-            br
             input(type="button" id=`borrar${index}` value="Borrar" onclick=`borrarBBDD("${film.ID}")`)
             input(type="button" id=`editar${index}` value="Editar", onclick=`editarBBDD("${film.Titulo}")`)
             input(type="button"  id=`detalle${index}` value="Detalles", onclick =`detalleBBDD("${film.Titulo}")`)
   footer
     header
-      div 
-        p Creative Commons 
-        p Lina Katherine Larrea
+      div(id="final")
+        p Design and code made by 
+          a(href="#") Lina Katherine Larrea Rodríguez
   script(src="/script_home.js") 
     

@@ -25,7 +25,7 @@ exports.getapiFilms = (req, res) => {
 exports.getBuscador = (req, res) => {
     bbdd.leerTitulos(req)
     .then((datos)=> {
-        res.render ("home", {title: "Bienvenido/a.", message: "BIENVENIDO", 
+        res.render ("home", {title: "Bienvenido/a.", message: "Cinematón", 
         datos})
     })
     .catch((e)=> console.log("ocurrió un error:"+e))

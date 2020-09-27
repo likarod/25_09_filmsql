@@ -1,97 +1,177 @@
+/*
+Agradecimientos por la inspiraciónna de su código a Rob Wellish y a Thamara Gerigr. Por su creatividad y sus diseños en Codepen. 
+*/
+
 :root{
     --main-color: #011422;
+    --main-width: 500px;
+    --main-blackground-color: #f8d406;
+    --main-font-family: monospace;
 }
 
 body {
-    width: 900px;
-    background-color: rgb(231, 231, 231);
-    background-position: 50% 10px !important;
-    background-attachment: fixed !important;
     -webkit-tap-highlight-color: transparent;
     margin: 0 auto;
-    font-family: "Poppins",sans-serif;
+    /* padding: 0 auto; */
 }
 
 
 nav#navegacion {
-    margin: 10px 0px 10px;
-    padding: 15px;
-    background-color: #011422;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    position: sticky;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
 }
+    .navegacion-items{
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: var(--main-blackground-color);
+    }
 
-a{
-    color: rgb(197, 197, 197);
-    text-decoration-line: none;
-    font-size: medium;
-}
+    li{
+        padding: 15px;
+        font-size: 22px;
+        transition: hover 0.2s linear;
+        cursor: pointer;
+    }
+    li:hover,
+    li:hover > a {
+        background-color: #acaa49;
+        color: #fff;
+    }
+    a{
+        color: rgb(20, 18, 18);
+        text-decoration-line: none;
+        font-family: monospace;
+        font-size: large;
+        transition: hover 0.2s linear;
+    }
 
-a:hover{
-    transform: scale(1.15, 1.15);
-    color: rgb(133, 130, 145);
-}
+    a:hover{
+        transform: scale(1.15, 1.15);
+        color: rgb(243, 239, 227);
+    }
 
 #cabecera{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-image: url("/IMG/titulo.jpg");
-    padding: 50px; 
+    align-items: baseline;
 }
 
-.cabeceraIntro {
-    text-align: center;
-    color: rgb(255, 254, 254);
-    border-color:black;
-    font-size: 100px;
-    z-index: 7;
-    box-shadow: -4px 6px 6px 6px #6e6e6e46 !important;
-    /* background-color: rgba(24, 23, 23, 0.363); */
-}
-    
+    .cabeceraIntro {
+        margin:10px;
+        font-family: 'Quicksand', monospace;
+        text-align: center;
+        color: rgb(1, 0, 20);
+        font-size: 70px;
+    }
+
+    img.cabeceraIntro{
+        height: 5px;
+    }
 
 #buscador {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #c4d0f79f;
-    color: var(--main-color);
-    z-index: 5;
+    position: relative;
+    background-color: #dfe2ee9f;
+    z-index: 2;
     text-align: center;
-    font-size: 30px;
-    margin-top: 5% !important;
-    margin-bottom: 5% !important;
-    padding: 50px;
+    margin: 1% 28% !important;
+    padding: 10px;
+    width: var(--main-width);
+    border-radius:40px;
     box-shadow: -4px 5px 7px 7px #57565673 !important;
-    
 }
+    #buscador:hover > .search-text{
+    width:240px;
+    padding:0 10px;
+    }
 
-#informacion{
-    padding: 30px ;
-    color: var(--main-color);
-    background-color:    #c4d0f711;
-    text-align: center;
-    
-}
-
+    .search-text{
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0px;
+        font-size: 15px;
+        transition: 0.5s;
+        width: 0px;
+    }
 .infoTitulo{
     color:var(--main-color);
+    font-family: 'DM MONO', monospace;
+    padding: 1% 28%;
     font-size: 40px;
     text-decoration: #272b4281;
 }
 
-.lista_cartas{
+#informacion{
     display: flex;
-    position: relative;
-    flex-direction: column;
-    flex-wrap: wrap;
-    min-width: 200px;
-    border-radius: 30px 30px;
-    box-shadow: -1rem 0 3rem #272b4281;
-}
-
+    padding: 30px ;
+    color: var(--main-color);
+    text-align: center;
+    justify-content: center;
     
+}
+    .lista_cartas{
+        border-radius: 30px 30px;
+        box-shadow: -1rem 0 3rem #272b4281;
+        background-color: #06131d1f; 
+        overflow: scroll;
+     }
+    
+    /* Funciones cuando se realiza scrollbar de la página. Especialmente cuando el elemento es muy grande y no entra en el ancho de la "caja"*/
+
+        .lista_cartas::-webkit-scrollbar{
+            width: 6px;
+            height: 6px;
+        }
+        .lista_cartas::-webkit-scrollbar-thumb{
+            background-color:#272b4281 ;
+            border-radius: 5px;
+            box-shadow: 2px, 2px, 2px hsla(0, 1%, 100%, 20), inset -2px -2px 2px rgba(197, 183, 233, 0);
+        }
+        .lista_cartas::-webkit-scrollbar-track{
+            background: linear-gradient(90deg, #d8d8d82d, #ebe9e92d)
+        }
+
+    .cartas{
+        display: flex;
+        position: relative;
+        flex-direction: column; 
+        height: 450px;
+        width: 350px;
+        padding: 1em;
+        min-width: 250px; 
+        align-items: center;
+    }
+
+    p{
+        text-align: justify;
+        margin: 1%;
+    }
+    img#Poster{
+        align-self: center;
+        height: 40%;
+        width: 40%;
+    }
+footer{
+    background: var(--main-blackground-color);
+    height:90px;
+  }
+
+  footer#final{
+    display: inline;
+    text-align: center;
+  }
+/* @media only screen and (max-width: 720px) {
+    .nav-bar-items {
+      justify-content: space-around;
+    }
+  }
+  
+@media only screen and (max-width: 490px) {
+    .nav-bar-items > li > a {
+      i {
+        font-size: 24px;
+        padding: 5px;
+        display: inline-block;
+      } */
