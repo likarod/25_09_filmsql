@@ -1,52 +1,63 @@
 html   
     head
         title= "Peli final"
+        link(rel="stylesheet", href="/pelicula.css")
     body
         div
-            div
-                nav
-                    a(href="/") INICIO
+            nav(id= "navegacion")
+                ul(class="navegacion-items")
+                    li
+                        a(href="/") INICIO
+                    li
+                        a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
+        header
             h1=mensaje
-            section
-                article
-                    p El titulo de la película es  
-                     span=tituloPeli
-            section
-                article
-                    p El año de la película es 
-                     span=epocaPeli
-            section
-                article
-                    p El género de la película es 
-                     span=generoPeli
-            section
-                article
-                    p El director de la pelicula es  
-                     span=peliDirector
-            section
-                article
-                    p Los actores protagonistas son 
-                     span=actorPeli
-            section
-                article
-                    p Sinopsis 
-                     span=sinopsisPeli
-            section
-                article
-                    p Idiomas: 
-                     span=idiomasPeli
-            section
-                article
-                    p Puntuacion: 
-                     span=puntuacionPeli
-            section
-                article
-                    p Producción: 
-                     span=productorPeli
-            div
+            div(id="textoDetalle")
+                section
+                    article
+                        p El titulo de la película es  
+                         span=tituloPeli
+                section
+                    article
+                        p El año de la película es 
+                         span=epocaPeli
+                section
+                    article
+                        p El género de la película es 
+                         span=generoPeli
+                section
+                    article
+                        p El director de la pelicula es  
+                         span=peliDirector
+                section
+                    article
+                        p Los actores protagonistas son 
+                         span=actorPeli
+                section
+                    article
+                        p Sinopsis 
+                         span=sinopsisPeli
+                section
+                    article
+                        p Idiomas: 
+                         span=idiomasPeli
+                section
+                    article
+                        p Puntuacion: 
+                         span=puntuacionPeli
+                section
+                    article
+                        p Producción: 
+                         span=productorPeli
+            div(id="poster")
             img(src=Poster, id= "poster" alt="Poster película")
             div 
             if(botton)
                 input(type="button", value="Guarde sus títulos favoritos.", id="btnFavorito")
             else if(botton = false)
+        footer
+            header
+                div(id="final")
+                    p Design and code made by 
+                     a(href="#") Lina Katherine Larrea Rodríguez
     script(src="/script2.js") 

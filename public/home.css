@@ -71,10 +71,10 @@ nav#navegacion {
 
 #buscador {
     position: relative;
-    background-color: #dfe2ee9f;
+    background-color:var(--main-blackground-color);
     z-index: 2;
     text-align: center;
-    margin: 1% 28% !important;
+    margin: 1% 33% !important;
     padding: 10px;
     width: var(--main-width);
     border-radius:40px;
@@ -95,31 +95,34 @@ nav#navegacion {
         transition: 0.5s;
         width: 0px;
     }
+    
+    input#tomarValor{
+        background: none;
+        border: none;
+    }
+
 .infoTitulo{
     color:var(--main-color);
     font-family: 'DM MONO', monospace;
     padding: 1% 28%;
-    font-size: 40px;
+    text-align: center;
+    font-size: 35px;
     text-decoration: #272b4281;
 }
 
 #informacion{
     display: flex;
-    padding: 30px ;
+    padding: 10px ;
     color: var(--main-color);
-    text-align: center;
-    justify-content: center;
-    
+    font-size: large;  
 }
     .lista_cartas{
         border-radius: 30px 30px;
-        box-shadow: -1rem 0 3rem #272b4281;
-        background-color: #06131d1f; 
+        box-shadow: -1rem 0 3rem #47495281;
+        background-color: #33414d1f; 
         overflow: scroll;
-     }
-    
+    }
     /* Funciones cuando se realiza scrollbar de la página. Especialmente cuando el elemento es muy grande y no entra en el ancho de la "caja"*/
-
         .lista_cartas::-webkit-scrollbar{
             width: 6px;
             height: 6px;
@@ -132,26 +135,33 @@ nav#navegacion {
         .lista_cartas::-webkit-scrollbar-track{
             background: linear-gradient(90deg, #d8d8d82d, #ebe9e92d)
         }
-
+    /* Estilo para el section*/
     .cartas{
         display: flex;
         position: relative;
         flex-direction: column; 
         height: 450px;
-        width: 350px;
-        padding: 1em;
+        width: 300px;
+        padding: 1.5em;
+        margin: 2em;
         min-width: 250px; 
-        align-items: center;
     }
 
     p{
+        font-weight: bold;
         text-align: justify;
         margin: 1%;
     }
+
+
     img#Poster{
-        align-self: center;
-        height: 40%;
+        align-self: flex-start;
+        height: 50%;
         width: 40%;
+    }
+
+    input{
+        align-self: flex-start;
     }
 footer{
     background: var(--main-blackground-color);

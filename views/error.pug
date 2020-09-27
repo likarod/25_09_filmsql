@@ -1,6 +1,20 @@
 html
     head
         title=title
+        link(rel="stylesheet", href="./error.css")
     body
-            img(src="/IMG/errorpug.jpg", alt="Perro triste")
-            figcaption Oh, no, PUG tienes un error.
+        nav(id= "navegacion")
+            ul(class="navegacion-items")
+                li
+                    a(href="/") INICIO
+                li
+                    a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
+        header
+            div
+                img(src="/IMG/errorpug.jpg", alt="Perro triste")
+                figcaption Oh, no, PUG tienes un error.
+    footer
+        header
+            div(id="final")
+                p Design and code made by 
+                 a(href="#") Lina Katherine Larrea Rodríguez

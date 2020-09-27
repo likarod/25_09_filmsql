@@ -1,11 +1,16 @@
 html
    head
-      title Guarde su película favorita. 
+      title Guarde su película favorita.
+      link(rel="stylesheet", href="/form.css") 
    body
       header
          div
-            nav
-               a(href="/") Inicio.
+            nav(id= "navegacion")
+               ul(class="navegacion-items")
+                li
+                    a(href="/") INICIO
+                li
+                    a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
       main 
       h1=titulo1 
          form(action=ruta, method=metodo)
@@ -64,3 +69,8 @@ html
                br
                input(type="file", name="Poster")
             button(type = "submit" id = "btnForm") Guardar.
+      footer
+         header
+            div(id="final")
+               p Design and code made by 
+                a(href="#") Lina Katherine Larrea Rodríguez

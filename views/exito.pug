@@ -1,6 +1,19 @@
 html
   head
     title= title
+    link(rel="stylesheet", href="/exito.css")
   body
-    h1= message
-    img(src="/IMG/pugfeliz.jpg", alt="Perrito sonríente")
+    nav(id= "navegacion")
+      ul(class="navegacion-items")
+        li
+          a(href="/") INICIO
+        li
+          a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
+    header
+      h1= message
+      img(src="/IMG/pugfeliz.jpg", alt="Perrito sonríente")
+    footer
+      header
+        div(id="final")
+          p Design and code made by 
+            a(href="#") Lina Katherine Larrea Rodríguez

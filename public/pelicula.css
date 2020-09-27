@@ -1,0 +1,103 @@
+/*
+Agradecimientos por la inspiraciónna de su código a Rob Wellish y a Thamara Gerigr. Por su creatividad y sus diseños en Codepen. 
+*/
+
+:root{
+    --main-color: #011422;
+    --main-width: 500px;
+    --main-blackground-color: #f8d406;
+    --main-font-family: monospace;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    margin: 0 auto;
+    /* padding: 0 auto; */
+}
+
+
+nav#navegacion {
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+}
+    .navegacion-items{
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: var(--main-blackground-color);
+    }
+
+    li{
+        padding: 15px;
+        font-size: 22px;
+        transition: hover 0.2s linear;
+        cursor: pointer;
+    }
+    li:hover,
+    li:hover > a {
+        background-color: #acaa49;
+        color: #fff;
+    }
+    a{
+        color: rgb(20, 18, 18);
+        text-decoration-line: none;
+        font-family: monospace;
+        font-size: large;
+        transition: hover 0.2s linear;
+    }
+
+    a:hover{
+        transform: scale(1.15, 1.15);
+        color: rgb(243, 239, 227);
+    }
+
+header{
+    display: flex;
+    flex-direction: column;
+}    
+h1{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    color: var(--main-color);
+    font-family: var(--main-font-family);
+    font-size: 30px;
+    padding: 1 33%;
+}
+
+div#textoDetalle{
+    flex-direction: column;
+    text-align: center;
+    padding: 1 28%;
+    font-family: var(--main-font-family);
+}
+
+p{
+    padding: 0px;
+}
+
+/* #poster{
+    display: flex;
+    flex-direction: row;
+} */
+
+img#Poster{
+    align-self: center;
+    height: 20%;
+    width: 30%;
+}
+
+input{
+    margin: 3%;
+    align-self:center;
+    width: 240px;
+}
+
+footer{
+    background: var(--main-blackground-color);
+    height:90px;
+  }
+
+  footer#final{
+    display: inline;
+    text-align: center;
+  }
