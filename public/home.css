@@ -1,5 +1,15 @@
+/*Agradecimientos por la inspiraciónna de su código a Rob Wellish y a Thamara Gerigr. Por su creatividad y sus diseños en Codepen.*/
 /*
-Agradecimientos por la inspiraciónna de su código a Rob Wellish y a Thamara Gerigr. Por su creatividad y sus diseños en Codepen. 
+-------------- ÍNDICE ------------
+1. Menú de navegación
+2. Cabecera.
+3. Inputs del buscador.
+4  Título de al sección Información.
+5. Películas guardadas.
+    5.1. Espacio para las "cajas" de las cartas.
+    5.2. Espacio para cada una de las cartas.
+6. Footer.
+7. Media Querys.
 */
 
 :root{
@@ -15,6 +25,9 @@ body {
     /* padding: 0 auto; */
 }
 
+/*
+------------ 1. Menú de navegación.
+*/
 
 nav#navegacion {
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
@@ -50,6 +63,9 @@ nav#navegacion {
         color: rgb(243, 239, 227);
     }
 
+/*
+------------> 2. Cabecera: CINEMATÓN.
+*/
 #cabecera{
     display: flex;
     flex-direction: row;
@@ -69,6 +85,9 @@ nav#navegacion {
         height: 5px;
     }
 
+/*
+-----------> 3. Inputs del buscador
+*/   
 #buscador {
     position: relative;
     background-color:var(--main-blackground-color);
@@ -99,8 +118,12 @@ nav#navegacion {
     input#tomarValor{
         background: none;
         border: none;
+        font-weight: bold;
     }
 
+/*
+-------> 4. Espacio dedicado al Título de la sección Información.
+*/    
 .infoTitulo{
     color:var(--main-color);
     font-family: 'DM MONO', monospace;
@@ -110,8 +133,13 @@ nav#navegacion {
     text-decoration: #272b4281;
 }
 
+
+/*
+-----------> 5. Espacio dedicado a las películas guardadas.
+*/
 #informacion{
     display: flex;
+    flex-wrap: wrap;
     padding: 10px ;
     color: var(--main-color);
     font-size: large;  
@@ -122,7 +150,11 @@ nav#navegacion {
         background-color: #33414d1f; 
         overflow: scroll;
     }
-    /* Funciones cuando se realiza scrollbar de la página. Especialmente cuando el elemento es muy grande y no entra en el ancho de la "caja"*/
+    /* 
+    5.1.
+    Funciones cuando se realiza scrollbar de cada carta. 
+    Especialmente cuando el elemento es muy grande y no entra en el ancho de la "caja"
+    */
         .lista_cartas::-webkit-scrollbar{
             width: 6px;
             height: 6px;
@@ -135,16 +167,20 @@ nav#navegacion {
         .lista_cartas::-webkit-scrollbar-track{
             background: linear-gradient(90deg, #d8d8d82d, #ebe9e92d)
         }
-    /* Estilo para el section*/
+
+    /* 
+    5.2.
+    Estilo para el section. Es decir, para cada carta.
+    */
     .cartas{
         display: flex;
         position: relative;
-        flex-direction: column; 
+        flex-direction: column;
         height: 450px;
-        width: 300px;
-        padding: 1.5em;
-        margin: 2em;
-        min-width: 250px; 
+        width: 370px;
+        padding: 1em;
+        margin: 1.5em;
+        min-width: 200px; 
     }
 
     p{
@@ -163,6 +199,10 @@ nav#navegacion {
     input{
         align-self: flex-start;
     }
+
+/*
+---------> 6. Espacio dedicado para el footer.
+*/
 footer{
     background: var(--main-blackground-color);
     height:90px;
@@ -172,16 +212,27 @@ footer{
     display: inline;
     text-align: center;
   }
-/* @media only screen and (max-width: 720px) {
-    .nav-bar-items {
+
+
+/*
+7. Espacio dedicado para las MEDIA QUERYS.
+*/
+@media only screen and (max-width: 720px) {
+    .navegacion-items {
       justify-content: space-around;
     }
   }
   
 @media only screen and (max-width: 490px) {
-    .nav-bar-items > li > a {
-      i {
-        font-size: 24px;
+    .navegacion-items > li > a {
+        font-size: 34px;
         padding: 5px;
         display: inline-block;
-      } */
+      } 
+}
+
+@media only screen and (max-width: 360px){
+    #buscador {
+        margin: 1% 23% !important;
+    }
+}

@@ -2,10 +2,6 @@ const fetch = require ("node-fetch");
 const bbdd = require("./modulos/s_bbdd.js");
 
 
-
-
-
-
 // Método para llamar a la API 
 exports.getapiFilms = (req, res) => {
     const titulo = req.params.titulo;
@@ -25,7 +21,7 @@ exports.getapiFilms = (req, res) => {
 exports.getBuscador = (req, res) => {
     bbdd.leerTitulos(req)
     .then((datos)=> {
-        res.render ("home", {title: "Bienvenido/a.", message: "Cinematón", 
+        res.render ("home", {title: "Cinematón", message: "Cinematón", 
         datos})
     })
     .catch((e)=> console.log("ocurrió un error:"+e))

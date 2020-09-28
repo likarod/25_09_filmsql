@@ -34,7 +34,7 @@ if(favorito!=null) {
           console.log
           ("Se ha enviado con éxito")
           console.log(respuesta)
-          location.replace("/")
+          // location.replace("/")
           })
         .catch((e)=>{
           console.log("error"+e)
