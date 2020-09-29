@@ -13,66 +13,49 @@ html
                     a(href="/") INICIO
                 li
                     a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
-      main 
+   main 
       h1=titulo1 
          form(action=ruta, method=metodo, id="cuerpoForm")
-            div 
+            div(class="cuerpoform")
             if(posicion)
                input(type="text", name="id" value=_id)
             else if(posicion=false)
-            div
+            div(class="div_campo_form" id="tituloDiv")
                label(for = "Titulo") Titulo:  
-               br
                input(type = "text" name = "Titulo" id="nombre" value=tituloEdit required)
-            br
-            div
-               label(for = "epoca") Año:
-               br  
+            div(class="div_campo_form")
+               label(for = "epoca") Año: 
                input(type ="text" name = "Epoca" id = "epoca" value=epocaEdit required)
-            br
-            div
-               label(for = "genero") Género:
-               br  
+            div(class="div_campo_form")
+               label(for = "genero") Género:  
                input(type = "text" name = "Genero" id = "genero" value=generoEdit required)
-            br
-            div
-               label(for = "director") Director:
-               br  
+            div(class="div_campo_form")
+               label(for = "director") Director: 
                input(type = "text" name = "Director" id = "director" value=directorEdit required)
-            br
-            div(class="actoresDiv")
-               label(for = "actores") Actores principales:
-               br  
+            div(class="div_campo_form" id="actoresDiv")
+               label(for = "actores") Actores principales:  
                input(type = "text" name = "Actores" id= "actors" value=actorsEdit required)
-            br
-            div  
+            div(class="div_campo_form") 
                label(for= "sinopsis") Sinopsis:
-               br
                input(type="text", name="Sinopsis" id="sinopsis" value=sinopsisEdit, required)
-            br
-            div
+            div(class="div_campo_form")
                label(for="idiomas") Idiomas:
-               br
                input(type="text", name="Idiomas" id="idiomas" value=idiomasEdit required)
-            br
-            div
+            div(class="div_campo_form")
                label(for="puntuacion") Puntuacion:
-               br
                input(type="number", name="Puntuacion" id="Puntuacion" value=puntuacionEdit required)
-            br
-            div
+            div(class="div_campo_form")
                label(for="produccion") Producción:
-               br
                input(type="text", name="Produccion" id="produccion" value=produccionEdit required) 
-            div  
-               label(for = "Imagen") Póster:
-               br
+            div(class="div_campo_form") 
+            if(posicion)   
+               label(for = "Imagen" class="posterImg") Póster:
                img(src=imagenEdit, alt="imagen", id="imagen")
-               br
-               input(type="file", name="Poster")
-            button(type = "submit" id = "btnForm") Guardar.
-      footer
-         header
-            div(id="final")
-               p Design and code made by 
-                a(href="#") Lina Katherine Larrea Rodríguez
+               //- input(type="file", name="Poster")
+            else if(posicion=false)
+            button(type = "submit" id = "btnForm") Guardar
+   footer
+      header
+         div(id="final")
+            p Design and code made by 
+             a(href="#") Lina Katherine Larrea Rodríguez

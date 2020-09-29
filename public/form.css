@@ -39,7 +39,6 @@ nav#navegacion {
         color: rgb(20, 18, 18);
         text-decoration-line: none;
         font-family: monospace;
-        font-size: large;
         transition: hover 0.2s linear;
     }
 
@@ -52,15 +51,68 @@ nav#navegacion {
 -------------> 2. Cuerpo Form.
 */
 
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+h1{
+    font-family: monospace;
+}
+
 form#cuerpoForm {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border:solid 2px black; */
 }
+    .cuerpoform-div{
+        margin-top: 10px;
+    }
+        .div_campo_form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 22px;
+        }
+            #nombre, #genero, #director, #idiomas, #puntuacion {
+                margin-top: 15px;
+            }
+            #actoresDiv{
+                display: flex;
+                flex-direction: column;
+            }
+                #actors{
+                    margin-top: 17px;
+                    align-self: center;
+                }
 
-.actoresDiv > input#actores{
-    color: indianred;
-}
+                #sinopsis{
+                    margin-top: 18px;
+                }
+                
+                #produccion{
+                    margin-top: 14px;
+                    width: 167px;
+                }
+
+                /* .posterImg, img{
+                    display:none;
+                } */
+        button{
+            padding: 6 132px;
+            border-radius: 9px;
+            margin-bottom: 30px;
+            background:#6aa0cf1f;
+            font-weight: bold;
+        }
+
+        button:hover{
+            background-color: rgba(255, 145, 0, 0.863);
+            color: white;
+        }
+
 /*
 --------------> . Footer.
 */
@@ -76,6 +128,7 @@ footer{
     display: inline;
     text-align: center;
   }
+
 
 /*
 -------------> Media Querys.

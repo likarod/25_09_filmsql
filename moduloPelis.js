@@ -105,7 +105,7 @@ exports.getpeliFinal = (req, res) => {
 
 // Método para renderizar el formulario de "Guardar favoritos"
 exports.getForm = (req, res) => { 
-    res.render("form", {titulo1: "¿Qué película desea guardar?.", ruta:"/films/create", metodo:"POST"})
+    res.render("form", {titulo1: "¿Qué película desea guardar?", ruta:"/films/create", metodo:"POST"})
     
 }
 
