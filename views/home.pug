@@ -2,6 +2,7 @@ html
   head
     title= title 
     link(rel="stylesheet", href="/home.css")
+    link(rel="shortcut icon", href="./IMG/studio-ghibli.svg", type="image/x-icon")
   body
     nav(id= "navegacion")
         ul(class="navegacion-items")
@@ -32,9 +33,10 @@ html
             p(class="dataDirector") Director: 
               span=film.Director
             img(class="dataPoster" id="poster" src=film.Poster)
-            input(type="button" id=`borrar${index}` value="Borrar" onclick=`borrarBBDD("${film.ID}")`)
-            input(type="button" id=`editar${index}` value="Editar", onclick=`editarBBDD("${film.Titulo}")`)
-            input(type="button"  id=`detalle${index}` value="Detalles", onclick =`detalleBBDD("${film.Titulo}")`)
+        
+            input(type="button" id=`borrar${index}` class="botonRojo" value=" Borrar " onclick=`borrarBBDD("${film.ID}")`)
+            input(type="button" id=`editar${index}` class="botonNaranja" value=" Editar ", onclick=`editarBBDD("${film.Titulo}")`)
+            input(type="button"  id=`detalle${index}` class="botonAmarilloClaro" value="Detalles", onclick =`detalleBBDD("${film.Titulo}")`)
   footer
     header
       div(id="final")

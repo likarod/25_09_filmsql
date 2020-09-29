@@ -1,7 +1,9 @@
 html
    head
       title Guarde su película favorita.
+      link(rel="shortcut icon", href="./IMG/studio-ghibli.svg", type="image/x-icon")
       link(rel="stylesheet", href="/form.css") 
+      
    body
       header
          div
@@ -13,7 +15,7 @@ html
                     a(href="/films/form/create") GUARDA TUS PELÍCULAS FAVORITAS
       main 
       h1=titulo1 
-         form(action=ruta, method=metodo)
+         form(action=ruta, method=metodo, id="cuerpoForm")
             div 
             if(posicion)
                input(type="text", name="id" value=_id)
@@ -38,7 +40,7 @@ html
                br  
                input(type = "text" name = "Director" id = "director" value=directorEdit required)
             br
-            div
+            div(class="actoresDiv")
                label(for = "actores") Actores principales:
                br  
                input(type = "text" name = "Actores" id= "actors" value=actorsEdit required)

@@ -31,6 +31,7 @@ body {
 
 nav#navegacion {
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    width: 100%;
 }
     .navegacion-items{
         list-style: none;
@@ -41,6 +42,7 @@ nav#navegacion {
 
     li{
         padding: 15px;
+        font-family: monospace;
         font-size: 22px;
         transition: hover 0.2s linear;
         cursor: pointer;
@@ -53,8 +55,6 @@ nav#navegacion {
     a{
         color: rgb(20, 18, 18);
         text-decoration-line: none;
-        font-family: monospace;
-        font-size: large;
         transition: hover 0.2s linear;
     }
 
@@ -118,6 +118,7 @@ nav#navegacion {
     input#tomarValor{
         background: none;
         border: none;
+        font-size: 11px;
         font-weight: bold;
     }
 
@@ -140,9 +141,10 @@ nav#navegacion {
 #informacion{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 10px ;
     color: var(--main-color);
-    font-size: large;  
+    font-size: 15px;  
 }
     .lista_cartas{
         border-radius: 30px 30px;
@@ -175,11 +177,13 @@ nav#navegacion {
     .cartas{
         display: flex;
         position: relative;
+        bottom: 2px;
         flex-direction: column;
-        height: 450px;
+        align-items: center;
+        height: 425px;
         width: 370px;
-        padding: 1em;
-        margin: 1.5em;
+        padding: 0.5em;
+        margin: 1em;
         min-width: 200px; 
     }
 
@@ -191,21 +195,41 @@ nav#navegacion {
 
 
     img#Poster{
-        align-self: flex-start;
+        align-self: center;
         height: 50%;
         width: 40%;
+        margin: 5px auto;
     }
 
-    input{
-        align-self: flex-start;
+    input.botonAmarilloClaro, input.botonNaranja, input.botonRojo {
+        align-self: center;
+        margin: 1px;
+        padding: 5 70px;
+        border-radius: 9px;
+        background:#6aa0cf1f ;
+        font-weight: bold;
+        font-size: 11px;
+
     }
 
+    input.botonAmarilloClaro:hover {
+        background-color: rgba(252, 252, 0, 0.863);
+    }
+
+    input.botonRojo:hover{
+        background-color: rgba(245, 16, 16, 0.863);
+    }
+
+    input.botonNaranja:hover{
+        background-color: rgba(243, 161, 8, 0.863);
+    }
 /*
 ---------> 6. Espacio dedicado para el footer.
 */
 footer{
     background: var(--main-blackground-color);
     height:90px;
+    width: 100%;
   }
 
   footer#final{
@@ -228,11 +252,5 @@ footer{
         font-size: 34px;
         padding: 5px;
         display: inline-block;
-      } 
-}
-
-@media only screen and (max-width: 360px){
-    #buscador {
-        margin: 1% 23% !important;
     }
 }
