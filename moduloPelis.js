@@ -127,8 +127,6 @@ exports.posCreateFilms = (req, res) => {
 // Método para editar y actualizar los documentos del FORM. 
 exports.putEditarFilms = (req, res) => {
     let ID = req.body.id
-    console.log("PASO 2 ++++++++++++++++++++++++++++++++++")
-    console.log(req.body)
     bbdd.editarTitulos(req.body, ID)
     .then(()=> {
         res.status(200).render("exito", {title: "Documento actualizado", message: "Se ha actualizado con éxito "})

@@ -45,14 +45,12 @@ Módulo para crear el nuevo Título.
 */
 exports.nuevoTitulo = async (datos) => {
     console.log("Su título se ha creado con éxito");
-    console.log(datos)
-    console.log(datos.Poster)
     let conn;
     try{
         conn = await pool.getConnection() //Abrir la conexión
         let res = await conn.query(`INSERT INTO Peliculas(Titulo, Epoca, Genero, Director, Actores, Sinopsis, Idiomas, Puntuacion, Produccion, Poster) VALUES (?,?,?,?,?,?,?,?,?,?)`, [datos.Titulo, datos.Epoca, datos.Genero, datos.Director, datos.Actores, datos.Sinopsis, datos.Idiomas, datos.Puntuacion, datos.Produccion, datos.Poster])
         console.log("Creado.")
-        console.log(res[0])
+        // console.log(res[0])
         return res
     }catch(e){
         console.log("Su error es "+e)
@@ -70,11 +68,9 @@ exports.detallesTitulo = async (Titulo) => {
     let conn;
     try{
         conn = await pool.getConnection();
-        let res = await conn.query(`SELECT * FROM Peliculas WHERE Titulo=(?)`, [Titulo]);
-        console.log(res[0])
+        let res = await conn.query(`SELECT * FROM Peliculas WHERE Titulo=(?)`, [Titulo])
         return res[0]
     }catch(e){
-        console.log(e)
         return null
     }finally {
         if(conn) conn.release();
@@ -90,7 +86,6 @@ exports.leerTitulos = async () => {
     try{
         conn = await pool.getConnection();
         let res = await conn.query(`SELECT * FROM Peliculas`);
-        console.log(res)
         return res
     }catch(e){
         console.log(e)
@@ -109,7 +104,6 @@ exports.editarTitulos = async(datos, ID) => {
     try{
         conn = await pool.getConnection();
         let res = await conn.query(`UPDATE Peliculas SET Titulo=(?), Epoca=(?), Genero=(?), Director=(?), Actores=(?), Sinopsis=(?), Idiomas=(?), Puntuacion=(?),Produccion=(?), Poster=(?) WHERE ID=(?)`, [datos.Titulo, datos.Epoca, datos.Genero, datos.Director, datos.Actores, datos.Sinopsis, datos.Idiomas, datos.Puntuacion, datos.Produccion, datos.Poster, ID])
-
         return res[0]
     }catch(e) {
         console.log(e)

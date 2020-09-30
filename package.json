@@ -4,7 +4,7 @@
   "description": "Llamar a una API REST para mostrar películas.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server.js"
   },
   "keywords": [
@@ -22,6 +22,10 @@
     "mariadb": "^2.4.2",
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
-    "pug": "^3.0.0"
+    "pug": "^3.0.0",
+    "require": "^2.4.20"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
   }
 }
