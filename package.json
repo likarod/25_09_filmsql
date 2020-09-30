@@ -23,6 +23,7 @@
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
     "pug": "^3.0.0",
+    "request": "^2.88.2",
     "require": "^2.4.20"
   },
   "devDependencies": {

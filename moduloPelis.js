@@ -32,7 +32,6 @@ exports.getBuscador = (req, res) => {
 exports.getPeliEditar = (req, res) => {
     bbdd.detallesTitulo(req.params.titulo)
     .then((datos)=> {
-        console.log(datos)
         res.render("form", {
             ruta:"/films/edit",    
             metodo: "POST",
