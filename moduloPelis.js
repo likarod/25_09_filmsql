@@ -19,7 +19,7 @@ exports.getapiFilms = (req, res) => {
 
 // Renderiza el HOME y buscar las películas favolitas desde el Buscador.
 exports.getBuscador = (req, res) => {
-    bbdd.leerTitulos(req)
+    bbdd.leerPeliculas(req)
     .then((datos)=> {
         res.render ("home", {title: "Cinematón", message: "Cinematón", 
         datos})
@@ -116,7 +116,7 @@ exports.getError = (req, res) => {
 
 // Método POST para crear un nuevo documento en la BBDD.
 exports.posCreateFilms = (req, res) => {
-    bbdd.nuevoTitulo(req.body)
+    bbdd.nuevaPelicula(req.body)
     .then(
         res.render("exito", {title: "Enviado con éxito", message: "Tu formulario se ha enviado con éxito"})
         )
@@ -127,7 +127,7 @@ exports.posCreateFilms = (req, res) => {
 // Método para editar y actualizar los documentos del FORM. 
 exports.putEditarFilms = (req, res) => {
     let ID = req.body.id
-    bbdd.editarTitulos(req.body, ID)
+    bbdd.editarPelicula(req.body, ID)
     .then(()=> {
         res.status(200).render("exito", {title: "Documento actualizado", message: "Se ha actualizado con éxito "})
     })
@@ -136,8 +136,7 @@ exports.putEditarFilms = (req, res) => {
 
 //Método POST para borrar un documento de la BBDD.
 exports.postDeleteFilms = (req, res) => {
-    console.log(req.body.ID)
-    bbdd.eliminarTitulo (req.body.ID)
+    bbdd.eliminarPelicula (req.body.ID)
     .then(res.status(200).render("exito"))
     .catch((e) => console.log("ocurrió un error"+e))
 }

@@ -43,8 +43,7 @@ async function crearTabla() {
 /*
 Módulo para crear el nuevo Título.
 */
-exports.nuevoTitulo = async (datos) => {
-    console.log("Su título se ha creado con éxito");
+exports.nuevaPelicula = async (datos) => {
     let conn;
     try{
         conn = await pool.getConnection() //Abrir la conexión
@@ -64,7 +63,6 @@ exports.nuevoTitulo = async (datos) => {
 Módulo para leer un nuevo título para visualizar en PELICULA.pug y poder actualizarlo.
 */
 exports.detallesTitulo = async (Titulo) => {
-    console.log("Título encontrado")
     let conn;
     try{
         conn = await pool.getConnection();
@@ -80,8 +78,7 @@ exports.detallesTitulo = async (Titulo) => {
 /*
 Método para leer todas las películas para el HOME.pug
 */
-exports.leerTitulos = async () => {
-    console.log("Título leído")
+exports.leerPeliculas = async () => {
     let conn;
     try{
         conn = await pool.getConnection();
@@ -98,13 +95,12 @@ exports.leerTitulos = async () => {
 Método para actualizar las filas de las tablas.
 */
 
-exports.editarTitulos = async(datos, ID) => {
-    console.log("Se ha actualizado correctamente las filas de la tabla Peliculas");
+exports.editarPelicula = async(datos, ID) => {
     let conn;
     try{
         conn = await pool.getConnection();
         let res = await conn.query(`UPDATE Peliculas SET Titulo=(?), Epoca=(?), Genero=(?), Director=(?), Actores=(?), Sinopsis=(?), Idiomas=(?), Puntuacion=(?),Produccion=(?), Poster=(?) WHERE ID=(?)`, [datos.Titulo, datos.Epoca, datos.Genero, datos.Director, datos.Actores, datos.Sinopsis, datos.Idiomas, datos.Puntuacion, datos.Produccion, datos.Poster, ID])
-        return res[0]
+        return res
     }catch(e) {
         console.log(e)
         return null
@@ -116,13 +112,11 @@ exports.editarTitulos = async(datos, ID) => {
 /*
 Módulo para eliminar un titulo de la tabla Películas
 */
-exports.eliminarTitulo = async(ID) => {
-    console.log("El título se ha eliminado con éxito")
+exports.eliminarPelicula = async(ID) => {
     let conn;
     try{
         conn = await pool.getConnection();
         let res = await conn.query(`DELETE FROM Peliculas WHERE ID=(?)`, [ID]);
-        console.log(res)
         return res
     }catch(e){
         console.log(e)

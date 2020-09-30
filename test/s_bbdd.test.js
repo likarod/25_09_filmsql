@@ -1,4 +1,4 @@
-const {nuevoTitulo, detallesTitulo, leerTitulos, editarTitulos, eliminarTitulos} = require('../modulos/s_bbdd')
+const {nuevaPelicula, detallesTitulo, leerPeliculas, editarPelicula, eliminarPelicula} = require('../modulos/s_bbdd')
 
 
 describe('Test para comprobar el funcionamiento de las BBDD', ()=>{
@@ -16,7 +16,7 @@ describe('Test para comprobar el funcionamiento de las BBDD', ()=>{
         }
     /*    
     test('Test para comprobar que se guarda un nuevo Título.', ()=> {
-        return nuevoTitulo(peli)
+        return nuevaPelicula(peli)
         .then(peli => {
             expect(peli).not.toBe(null)
         })
@@ -30,16 +30,23 @@ describe('Test para comprobar el funcionamiento de las BBDD', ()=>{
     })
 
     test('Test para comprobaar si se leen todos las Películas en la HOME', ()=> {
-        return leerTitulos()
+        return leerPeliculas()
         .then(Peliculas => {
             expect(Peliculas).not.toBe(null)
         })
     })
 
     test('Test para comprobar si una Película se ha editado', () => {
-        return editarTitulos(peli, 29)
+        return editarPelicula(peli, 29)
         .then(peli => {
-            expect(peli.Idiomas).toBe("Ingles")
+            expect(peli.Idiomas).not.toBe(null)
+        })
+    })
+
+    test('Test para comprobar que la Película se ha eliminado', () => {
+        return eliminarPelicula(29)
+        .then(Pelicula => {
+            expect(Pelicula).not.toBe(null)
         })
     })
 })
