@@ -10,7 +10,8 @@ describe('Abrir y cerrar el Server.', ()=> {
     afterAll(()=>{
         server.close()
     });
-    
+     
+    /*-- 1. BDD */
     describe('Test para simular: GET "/"', ()=>{
         let data = {};
         beforeAll((done) => {
@@ -19,37 +20,38 @@ describe('Abrir y cerrar el Server.', ()=> {
                 data.body = body;
                 done();
             })
-    });
+        });
 
-    test('Status 200', () => {
+        test('Status 200', () => {
             expect(data.status).toBe(200);
             })
 
-    test('Body not null', () => {
+        test('Body not null', () => {
             expect(data.body).not.toBe(null)
         })
     })
+
+    /*-- 2. BDD */ 
     describe("Test para simular: GET /films/form/create/", ()=>{
         let data = {}
         beforeAll((done) => {
-            Request.get("http://localhost:3000/films/form/create",(e, response, body) =>{
+            Request.get("http://localhost:3000/films/form/create",(e, response) =>{
                 data.status = response.statusCode;
-                // data.body = JSON.parse(body);
                 done();
             }) 
-        });
+            Request.post("http://localhost:3000/films/form/create", (e, body) => {
+              data.body = JSON.parse(body);  
+              done();
+            })
+        }); 
 
-    test("Status 200", () => {
+        test("Status 200", () => {
             expect(data.status).toBe(200)
         })
-
-    /* 
-    test("Body not null", () => {
-             expect(data.body).not.toBe(null)
+ 
+        test("Body not null", () => {
+            expect(data.body).not.toBe(null)
         }) 
-    */
+        
+        })
     })
-})
-
-
-
