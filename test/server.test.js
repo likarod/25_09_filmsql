@@ -32,26 +32,32 @@ describe('Abrir y cerrar el Server.', ()=> {
     })
 
     /*-- 2. BDD */ 
-    describe("Test para simular: GET /films/form/create/", ()=>{
+    describe("Test para simular: GET /films/form/create/", ()=> {
         let data = {}
         beforeAll((done) => {
             Request.get("http://localhost:3000/films/form/create",(e, response) =>{
                 data.status = response.statusCode;
                 done();
             }) 
-            Request.post("http://localhost:3000/films/form/create", (e, body) => {
-              data.body = JSON.parse(body);  
-              done();
-            })
         }); 
 
         test("Status 200", () => {
             expect(data.status).toBe(200)
-        })
- 
+        })    
+    })
+    
+    describe("Test para comprobar: POST /films/forms/create", () => {
+        let data =  {};
+        beforeAll((done)=> {
+            Request.post("http://localhost:3000/films/form/create", (e, body) => {
+                data.body = JSON.stringify(body);  
+                done();
+            }) 
+        });
+
         test("Body not null", () => {
             expect(data.body).not.toBe(null)
         }) 
-        
-        })
     })
+    
+})

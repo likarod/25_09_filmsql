@@ -187,6 +187,10 @@ nav#navegacion {
         min-width: 200px; 
     }
 
+    #posicion{
+        display: none;
+    }
+
     p{
         font-weight: bold;
         text-align: justify;

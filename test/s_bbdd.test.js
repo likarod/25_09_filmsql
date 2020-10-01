@@ -3,22 +3,30 @@ const {nuevaPelicula, detallesTitulo, leerPeliculas, editarPelicula, eliminarPel
 
 describe('Test para comprobar el funcionamiento de las BBDD', ()=>{
     let peli = {
-        "Titulo": "Love Storie",
-        "Epoca": 2013,
-        "Genero": "drama",
-        "Director": "Almodovar",
-        "Actores": "Lucia",
-        "Sinopsis": "Esto es una prueba",
+        "Titulo": "Volver",
+        "Epoca": 2006,
+        "Genero": "Melodrama, Comedia",
+        "Director": "Pedro Almodovar",
+        "Actores": "Penélope Cruz, Carmen Maura, Lola Dueñas, Blanca Portillo",
+        "Sinopsis": "Tres generaciones de mujeres que sobreviven al viento solano, al fuego, a la locura, a la superstición e incluso a la muerte a base de bondad, mentiras y una vitalidad sin límites",
         "Idiomas": "Español",
         "Puntuacion": 8,
-        "Produccion": "Paramont",
-        "Poster": "una imagen"
+        "Produccion": "El deseo",
+        "Poster": "https://www.elindependiente.com/wp-content/uploads/2020/09/volver.jpg"
         }
-    /*    
+       
     test('Test para comprobar que se guarda un nuevo Título.', ()=> {
         return nuevaPelicula(peli)
         .then(peli => {
             expect(peli).not.toBe(null)
+        })
+    })
+
+    /*   
+    test('Test para comprobar que no se guarda un nuevo Título.', ()=> {
+        return nuevaPelicula(peli)
+        .then(peli => {
+            expect(peli).toBe(null)
         })
     })*/
     
